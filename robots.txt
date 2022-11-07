@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+Sitemap: https://fourth-homework.netlify.app/sitemap.xml
+Host: https://fourth-homework.netlify.app
+
