@@ -458,29 +458,12 @@ nav{
         }
 }
 
-.hamburger:hover .second-line {
-    opacity: 0;
-}
-
-.hamburger:hover .line.first-line {
-    animation-name: fifthAnimation;
-    animation-duration: 0.4s;
-    animation-timing-function: ease-in;
-    animation-fill-mode: forwards;
-}
-
-.hamburger:hover .line.third-line {
-    animation-name: sixthAnimation;
-    animation-duration: 0.4s;
-    animation-timing-function: ease-in;
-    animation-fill-mode: forwards;
-}
 
 .line {
     border-radius: 0.2rem;
 }
 
-@keyframes fifthAnimation {
+@keyframes firstLine {
     0% {
         top: 0;
     }
@@ -495,7 +478,24 @@ nav{
     }
 }
 
-@keyframes sixthAnimation {
+@keyframes firstLineee {
+    0% {
+        top: 50%;
+        transform: translateY(-50%) rotate(45deg);
+    }
+
+    50% {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    100% {
+        top: 0;
+        transform: initial;
+    }
+}
+
+@keyframes thirdLine {
     0% {
         bottom: 0;
     }
@@ -510,6 +510,23 @@ nav{
     }
 }
 
+@keyframes thirdLineee {
+    0% {
+        bottom: 50%;
+        transform: translateY(50%) rotate(-45deg);
+    }
+
+    50% {
+        bottom: 50%;
+        transform: translateY(50%);
+    }
+
+    100% {
+        bottom: 0;
+        transform: initial;
+    }
+}
+
 .hamburger {
     opacity: 0;
 }
@@ -518,12 +535,55 @@ nav{
 @media screen and (max-width: 880px) {
     .lil-div{
         display: none;
-        /* flex-direction: column; */
     }
-        /* .middle ul{
-            flex-direction: column;
-        } */
-        /* jako losa ideja za hamburger iskr */
+                .line {
+                    height: 0.25rem;
+                    width: 2rem;
+                    background-color: #1ABC9C;
+                    position: absolute;
+                }
+        
+                .line.first-line {
+                    top: 0;
+                }
+        
+                .line.second-line {
+                    top: 50%;
+                    transform: translateY(-50%);
+                    opacity: 1;
+                    transition: all 0.3s linear;
+                }
+        
+                .line.third-line {
+                    bottom: 0;
+                }
+        
+                .hamburger {
+                    position: relative;
+                    height: 1.35rem;
+                    cursor: pointer;
+                }
+        
+                .nav.active .first-line {
+                    animation: firstLine 0.5s ease-in-out 0s 1 normal both;
+                }
+        
+                .nav.active .third-line {
+                    animation: thirdLine 0.5s ease-in-out 0s 1 normal both;
+                }
+        
+                .nav.active .second-line {
+                    opacity: 0;
+                }
+        
+                .nav.not-active .first-line {
+                    animation: firstLineee 0.5s ease-in-out 0s 1 normal both;
+                }
+        
+                .nav.not-active .third-line {
+                    animation: thirdLineee 0.5s ease-in-out 0s 1 normal both;
+                }
+    
     .both {
         padding: 0.7rem 1rem;
     }
@@ -697,57 +757,8 @@ nav{
     }
 } */
 
-.line{
-    height: 0.25rem;
-    width: 2rem;
-    background-color: #1ABC9C;
-    position: absolute;
+a {
+    text-decoration: none;
+    color: #DCE0E6;
 }
 
-.line.first-line{
-    top: 0;
-}
-
-.line.second-line {
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.line.third-line {
-    bottom: 0;
-}
-
-.hamburger{
-    position: relative;
-    height: 1.35rem;
-    cursor: pointer;
-}
-    
-    /* ide na lil-div */
-.active{
-    flex-direction: column;
-    gap: 1rem;
-    height: 100vh;
-    width: 100vw;
-    left: 0;
-    top: 0;
-    position: fixed;
-    z-index: 100;
-    background-color: #1F184E;
-    }
-
-    /* active-two ide na middle */
-    .active-two ul{
-        flex-direction: column;
-        gap: 2rem;
-    }
-
-    /* ide na buttons-right */
-    .active-three{
-        flex-direction: column;
-    }
-
-    a{
-        text-decoration: none;
-        color: #DCE0E6;
-    }
